@@ -3,9 +3,9 @@ import { Box, Text, SimpleGrid, Stat, StatLabel, StatNumber } from '@chakra-ui/r
 import { inventoryData } from '../data/inventoryData';
 
 function InventoryDashboard() {
-  const totalStock = inventoryData.reduce((total, product) => total + product.stock, 0);
-  const totalDelivered = inventoryData.reduce((total, product) => total + product.delivered, 0);
-  const lowStockItems = inventoryData.filter(product => product.stock <= 10);
+  const totalStock = inventoryData.reduce((total, product) => total + Number(product.stock), 0);
+  const totalDelivered = inventoryData.reduce((total, product) => total + Number(product.delivered), 0);
+  const lowStockItems = inventoryData.filter(product => Number(product.stock) <= 10);
 
   return (
     <Box p={4}>
@@ -13,15 +13,15 @@ function InventoryDashboard() {
       <SimpleGrid columns={3} spacing={4} mt={4}>
         <Stat>
           <StatLabel>Total Stock</StatLabel>
-          <StatNumber>{totalStock}</StatNumber>
+          <StatNumber color="green.400" fontWeight="bold">{totalStock}</StatNumber>
         </Stat>
         <Stat>
           <StatLabel>Total Delivered</StatLabel>
-          <StatNumber>{totalDelivered}</StatNumber>
+          <StatNumber color="orange.400" fontWeight="bold">{totalDelivered}</StatNumber>
         </Stat>
         <Stat>
           <StatLabel>Low Stock Items</StatLabel>
-          <StatNumber>{lowStockItems.length}</StatNumber>
+          <StatNumber color="red.400" fontWeight="bold">{lowStockItems.length}</StatNumber>
         </Stat>
       </SimpleGrid>
     </Box>

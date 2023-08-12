@@ -12,7 +12,7 @@ function DepartmentsPage() {
       <SimpleGrid columns={3} spacing={4} mt={4}>
         {departments.map(department => (
           <Link key={department} to={`/departments/${department}`}>
-            <Button colorScheme="blue">{department}</Button>
+            <Button px="3rem" py="2rem" colorScheme="gray" w="8rem" >{department}</Button>
           </Link>
         ))}
       </SimpleGrid>

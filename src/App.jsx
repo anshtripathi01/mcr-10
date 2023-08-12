@@ -8,13 +8,16 @@ import ProductListPage from "./components/ProductListPage";
 import ProductManagement from "./components/ProductManagement";
 import ProductDetailsPage from "./components/DetailedProductPage";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <ChakraProvider>
       <Router>
         <Flex>
-        <ScrollToTop />
+          <ToastContainer />
+          <ScrollToTop />
           <Sidebar />
           <Box flexBasis="80%">
             <Routes>

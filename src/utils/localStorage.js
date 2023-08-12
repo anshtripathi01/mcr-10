@@ -1,3 +1,4 @@
+
 export const updateLocalStorage = data => {
     localStorage.setItem('inventoryData', JSON.stringify(data));
   };

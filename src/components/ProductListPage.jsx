@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Box, Heading, Select, Checkbox, Flex } from "@chakra-ui/react";
+import { Box, Heading, Select, Checkbox, Flex, Button } from "@chakra-ui/react";
 import ProductCard from "./ProductCard";
 import { inventoryData } from "../data/inventoryData";
+import { Link } from "react-router-dom";
 
 function ProductListingPage() {
+
   const [selectedDepartment, setSelectedDepartment] =
     useState("All departments");
   const [lowStockOnly, setLowStockOnly] = useState(false);
@@ -21,6 +23,7 @@ function ProductListingPage() {
   return (
     <Box p={4}>
       <Heading mb={4}>Product Listing</Heading>
+      <Flex w="100%" justifyContent="space-between">
       <Box mb={4}>
         <Select
           onChange={(e) => setSelectedDepartment(e.target.value)}
@@ -40,7 +43,10 @@ function ProductListingPage() {
         >
           Low Stock Only
         </Checkbox>
+       
       </Box>
+      <Button as={Link} to="/product-management" colorScheme="blue">Add New Product</Button>
+      </Flex>
       <Flex flexWrap="wrap" justifyContent="center" alignItems="center">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

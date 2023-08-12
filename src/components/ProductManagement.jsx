@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { v4 as uuidv4 } from "uuid";
 import { inventoryData } from "../data/inventoryData";
+import { toast } from "react-toastify";
 
 function ProductManagement() {
   const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ function ProductManagement() {
       delivered: 0,
       imageUrl: "",
     });
-    alert("New product added successfully!");
+    toast.success("New product added successfully!",{autoClose:1000})
   };
 
   return (
