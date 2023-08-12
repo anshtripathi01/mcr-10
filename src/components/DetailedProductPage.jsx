@@ -14,7 +14,9 @@ function ProductDetailsPage() {
   const { productId } = useParams();
   const navigate = useNavigate();
 
-  const product = inventoryData.find((item) => item.id === Number(productId));
+  const product = inventoryData.find(
+    (item) => item.id.toString() === productId.toString()
+  );
 
   if (!product) {
     return <Box>Product not found</Box>;
